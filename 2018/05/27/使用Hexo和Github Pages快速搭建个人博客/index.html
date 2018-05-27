@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在编程路上，每天都在网上查看别人的博客，大牛的文章写得通俗易懂，同时博客网站也非常华丽。作为出入编程的一枚小白也想拥有这样一个自己的网站。那就立马去买一个域名了，在网上找教程来搭建。搭建的过程还算比较顺利，没有遇到多大的问题，虽然这篇博客的内容也是从别人的博客东粘西补过来的，为什么要东粘西补呢，因为光照着一篇博客并不能顺利搭建，还需要其他博客来补充。本博客的最大好处是只要阅读这一篇博客就能解决问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Hexo和Github Pages快速搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/使用Hexo和Github Pages快速搭建个人博客/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在编程路上，每天都在网上查看别人的博客，大牛的文章写得通俗易懂，同时博客网站也非常华丽。作为出入编程的一枚小白也想拥有这样一个自己的网站。那就立马去买一个域名了，在网上找教程来搭建。搭建的过程还算比较顺利，没有遇到多大的问题，虽然这篇博客的内容也是从别人的博客东粘西补过来的，为什么要东粘西补呢，因为光照着一篇博客并不能顺利搭建，还需要其他博客来补充。本博客的最大好处是只要阅读这一篇博客就能解决问题">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6932056-e2958db351ab6a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6932056-789ce00724c78f4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6932056-8f9a303819f33caf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-27T11:00:51.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Hexo和Github Pages快速搭建个人博客">
+<meta name="twitter:description" content="在编程路上，每天都在网上查看别人的博客，大牛的文章写得通俗易懂，同时博客网站也非常华丽。作为出入编程的一枚小白也想拥有这样一个自己的网站。那就立马去买一个域名了，在网上找教程来搭建。搭建的过程还算比较顺利，没有遇到多大的问题，虽然这篇博客的内容也是从别人的博客东粘西补过来的，为什么要东粘西补呢，因为光照着一篇博客并不能顺利搭建，还需要其他博客来补充。本博客的最大好处是只要阅读这一篇博客就能解决问题">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6932056-e2958db351ab6a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/27/使用Hexo和Github Pages快速搭建个人博客/"/>
+
+
+
+
+
+  <title>使用Hexo和Github Pages快速搭建个人博客 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/使用Hexo和Github Pages快速搭建个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用Hexo和Github Pages快速搭建个人博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T18:06:18+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在编程路上，每天都在网上查看别人的博客，大牛的文章写得通俗易懂，同时博客网站也非常华丽。作为出入编程的一枚小白也想拥有这样一个自己的网站。那就立马去买一个域名了，在网上找教程来搭建。<br>搭建的过程还算比较顺利，没有遇到多大的问题，虽然这篇博客的内容也是从别人的博客东粘西补过来的，为什么要东粘西补呢，因为光照着一篇博客并不能顺利搭建，还需要其他博客来补充。<br>本博客的最大好处是只要阅读这一篇博客就能解决问题，这里找出了我踩过的雷坑，方便大家畅通无阻的搭建。</p>
+<a id="more"></a>
+<h3 id="原材料"><a href="#原材料" class="headerlink" title="原材料"></a><strong>原材料</strong></h3><ul>
+<li>域名（自行购买）</li>
+<li>node.js（<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网下载</a>）</li>
+<li>git（<a href="https://git-scm.com/" target="_blank" rel="noopener">官网下载</a>） </li>
+<li>hexo。<br>方法：git安装完成后，在桌面右键，点击Git Bash Here，输入npm命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>第一句是安装hexo，第二句是安装hexo部署到git page的deployer。</p>
+<h3 id="本地搭建Hexo静态博客"><a href="#本地搭建Hexo静态博客" class="headerlink" title="本地搭建Hexo静态博客"></a><strong>本地搭建Hexo静态博客</strong></h3><ul>
+<li><p>创建Hexo文件夹<br>自己挑选一个目录建立一个文件夹（E:\MyBlog），进入MyBlog文件夹下，右键点击Git Bash Here，进入Git命令框，执行以下操作，生成hexo模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地查看效果<br>执行下面语句，执行完即可登录<a href="http://localhost:4000/" target="_blank" rel="noopener">localhost:4000</a>查看效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>也可以使用简写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -s</span><br></pre></td></tr></table></figure></p>
+<p>本地博客以及搭建起来，接下来需要把本地的博客发布到服务器上。</p>
+<h3 id="将博客部署到Github-Page上"><a href="#将博客部署到Github-Page上" class="headerlink" title="将博客部署到Github Page上"></a><strong>将博客部署到Github Page上</strong></h3><h4 id="一、创建项目代码库"><a href="#一、创建项目代码库" class="headerlink" title="一、创建项目代码库"></a><strong>一、创建项目代码库</strong></h4><p>Github Pages是寄存在Github上面的，即需要在Github上创建一个新的项目。<br>登录自己的Github账户，点击<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fnew" target="_blank" rel="noopener">New repository</a>，需要注意的是填写Repository name时，名字的格式必须为xxx.github.io<br>xxx为自己的github的用户名，比如我的github名为<strong>ghq120</strong>，所以创建仓库名为<strong>ghq120.github.io</strong></p>
+<h4 id="二、配置SSH密钥"><a href="#二、配置SSH密钥" class="headerlink" title="二、配置SSH密钥"></a><strong>二、配置SSH密钥</strong></h4><p>配置Github的SSH密钥可以让本地git项目与远程的github建立联系，让我们在本地写了代码之后直接通过git操作就可以实现本地代码库与Github代码库同步。</p>
+<p>生成及配置SSH不多做说明，丢出一个连接<br><a href="https://blog.csdn.net/u012373815/article/details/53575362" target="_blank" rel="noopener">SSH连接GitHub、GitHub配置ssh key</a><br>简单来说就是生成一个SSH密钥，然后在GitHub中添加密钥。<br>配置完成后，可以在git窗口中输入可查看是否设置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>显示如下即成功<img src="https://upload-images.jianshu.io/upload_images/6932056-e2958db351ab6a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ssh配置成功"></p>
+<h4 id="三、将本地的Hexo文件更新到Github的库中"><a href="#三、将本地的Hexo文件更新到Github的库中" class="headerlink" title="三、将本地的Hexo文件更新到Github的库中"></a><strong>三、将本地的Hexo文件更新到Github的库中</strong></h4><p>打开MyBlog文件夹下 _config.yml文件，找到deploy关键字，改如下配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:ghq120/ghq120.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>repository的内容将 ghq120 替换为自己的用户名<br>在MyBlog文件夹下执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure></p>
+<p>执行完输入github的账号密码，完成后可在浏览器输入<a href="https://gh120.github.io/" target="_blank" rel="noopener">https://gh120.github.io/</a> 访问博客。</p>
+<p>若出现 <code>ERROR Deployer not found: git</code>错误说明deployer没有安装成功，将如下命令再安装一次即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="GitHub-Page绑定自己的域名"><a href="#GitHub-Page绑定自己的域名" class="headerlink" title="GitHub Page绑定自己的域名"></a><strong>GitHub Page绑定自己的域名</strong></h3><h4 id="一、CNAME文件"><a href="#一、CNAME文件" class="headerlink" title="一、CNAME文件"></a><strong>一、CNAME文件</strong></h4><p>在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mipha.top</span><br></pre></td></tr></table></figure></p>
+<p>注意前面没有http://，也没有www，然后使用hexo g  -d上传部署。</p>
+<h4 id="二、配置DNS"><a href="#二、配置DNS" class="headerlink" title="二、配置DNS"></a><strong>二、配置DNS</strong></h4><p>本人的域名是在阿里云买的，解析配置DNS使用的是DNSPOD 。<br>在配置页面加入这两条记录<img src="https://upload-images.jianshu.io/upload_images/6932056-789ce00724c78f4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DNS配置"><br>其中记录值处的内容是ping你的ghq120.github.io域名，得到一个IP<br><img src="https://upload-images.jianshu.io/upload_images/6932056-8f9a303819f33caf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IP地址"><br>因为是在DNSPOD处解析域名，所以需要在阿里云域名管理台处修改DNS如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f1g1ns1.dnspod.net </span><br><span class="line">f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p>
+<h4 id="三、等待生效"><a href="#三、等待生效" class="headerlink" title="三、等待生效"></a><strong>三、等待生效</strong></h4><p>等10分钟解析生效后就可以通过在浏览器中输入自己的域名来访问GitHub Pages博客。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原材料"><span class="nav-number">1.</span> <span class="nav-text">原材料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地搭建Hexo静态博客"><span class="nav-number">2.</span> <span class="nav-text">本地搭建Hexo静态博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将博客部署到Github-Page上"><span class="nav-number">3.</span> <span class="nav-text">将博客部署到Github Page上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建项目代码库"><span class="nav-number">3.1.</span> <span class="nav-text">一、创建项目代码库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、配置SSH密钥"><span class="nav-number">3.2.</span> <span class="nav-text">二、配置SSH密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、将本地的Hexo文件更新到Github的库中"><span class="nav-number">3.3.</span> <span class="nav-text">三、将本地的Hexo文件更新到Github的库中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Page绑定自己的域名"><span class="nav-number">4.</span> <span class="nav-text">GitHub Page绑定自己的域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、CNAME文件"><span class="nav-number">4.1.</span> <span class="nav-text">一、CNAME文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、配置DNS"><span class="nav-number">4.2.</span> <span class="nav-text">二、配置DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、等待生效"><span class="nav-number">4.3.</span> <span class="nav-text">三、等待生效</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
